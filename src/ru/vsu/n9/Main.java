@@ -8,15 +8,8 @@ public class Main {
         Point p1 = readPoint("p1");
         Point p2 = readPoint("p2");
         Point p3 = readPoint("p3");
-        Point p4 = readPoint("p5");
-        double a = findDistance(p1, p2);
-        double b = findDistance(p2, p3);
-        double c = findDistance(p3, p4);
-        double d = findDistance(p4, p1);
-        double d1 = findDistance(p1, p3);
-        double d2 = findDistance(p2, p4);
-
-        System.out.print(isSquare(a, b, c, d, d1, d2));
+        Point p4 = readPoint("p4");
+        printResult(isSquare(p1, p2, p3, p4));
     }
 
     private static Point readPoint(String name) {
@@ -31,11 +24,16 @@ public class Main {
         return scanner.nextDouble();
     }
 
-    private static boolean isSquare(double a, double b, double c, double d, double d1, double d2) {
-        return ((a+b)==(c+d)) && ((d1) == (d2));
+    private static boolean isSquare(Point p1, Point p2, Point p3, Point p4) {
+        return ((findDistance(p1, p2) + findDistance(p3, p4)) == (findDistance(p2, p3) + findDistance(p4, p1)))
+                && ((findDistance(p2, p4) == findDistance(p1, p3)));
     }
 
     private static double findDistance(Point p1, Point p2) {
         return Math.sqrt((p1.x - p2.x) * (p1.x - p2.x) + ((p1.y - p2.y) * (p1.y - p2.y)));
+    }
+
+    private static void printResult(boolean result) {
+        System.out.println("is this quadrilateral a square: " + result);
     }
 }
