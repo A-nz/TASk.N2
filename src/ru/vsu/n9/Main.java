@@ -27,6 +27,7 @@ public class Main {
     private static boolean isSquare(Point point1, Point point2, Point point3, Point point4) {
         return ((findDistance(point1, point2) + findDistance(point3, point4)) ==
                 (findDistance(point2, point3) + findDistance(point4, point1)))
+                && ((findDistance(point1, point2) == findDistance(point2, point3)))
                 && ((findDistance(point2, point4) == findDistance(point1, point3)));
     }
 
