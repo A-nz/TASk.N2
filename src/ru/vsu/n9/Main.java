@@ -5,10 +5,10 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        Point point1 = readPoint("coordinate1");
-        Point point2 = readPoint("coordinate2");
-        Point point3 = readPoint("coordinate3");
-        Point point4 = readPoint("coordinate4");
+        Point point1 = readPoint("coordinate 1");
+        Point point2 = readPoint("coordinate 2");
+        Point point3 = readPoint("coordinate 3");
+        Point point4 = readPoint("coordinate 4");
         printResult(isSquare(point1, point2, point3, point4));
     }
 
