@@ -25,10 +25,16 @@ public class Main {
     }
 
     private static boolean isSquare(Point point1, Point point2, Point point3, Point point4) {
-        return ((findDistance(point1, point2) + findDistance(point3, point4)) ==
-                (findDistance(point2, point3) + findDistance(point4, point1)))
-                && ((findDistance(point1, point2) == findDistance(point2, point3)))
-                && ((findDistance(point2, point4) == findDistance(point1, point3)));
+        double side1 = findDistance(point1, point2);
+        double side2 = findDistance(point2, point3);
+        double side3 = findDistance(point3, point4);
+        double side4 = findDistance(point4, point1);
+        double diagonal1 = findDistance(point2, point4);
+        double diagonal2 = findDistance(point1, point3);
+
+        return ((side1 + side3) == (side2 + side4))
+                && (side1 == side2)
+                && (diagonal1 == diagonal2);
     }
 
     private static double findDistance(Point point1, Point point2) {
